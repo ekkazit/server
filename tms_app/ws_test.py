@@ -13,6 +13,8 @@ print("Logged in as %s (uid:%d)" % (USER, uid))
 # call statement
 call = functools.partial(xmlrpc.client.ServerProxy(ROOT + 'object').execute, DB, uid, PASS)
 
+
+# call search read
 cars = call('tms.car', 'search_read', [])
 for c in cars:
     print("Car ID=%s Name=%s" % (c['id'], c['name']))
